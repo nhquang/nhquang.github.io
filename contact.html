@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	
+	<title>QuangNguyen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<style>	
+		nav ul li a{
+			width:120px;
+		}
+		
+		body{
+			background-image: url(background.jpg);
+			background-repeat: no-repeat;
+			background-size:cover;
+			background-position:center;
+			background-attachment:fixed;
+			position: relative;
+		}
+		.row{
+			width:50%;
+			margin:auto;
+			margin-top:50px;
+		}
+		.title{
+			text-align:center;
+			border-width:0.5px;
+			border-style:none;
+			height:50px;
+			border-radius:25px;
+		}
+		.foot{
+			text-align:center;
+			color:white;
+			padding-top:15px;
+		}
+		.footer{
+			position: absolute;
+			width:100%;
+			margin-top: 15px;
+		}
+		
+		.nav-item{
+			
+			
+		}
+		.col{
+			text-align:center;
+			
+			
+		}
+		.row{
+			margin-top:150px;
+			display:none;
+		}
+		.mail:hover{
+			text-decoration:none;
+		}
+	</style>
+	
+	<script>
+		$(document).ready(function(){
+			$(".row").slideDown("slow");
+		});	
+	</script>
+  </head>
+  <body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="https://nhquang.github.io/index.html" class="navbar-brand">Quang</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+        <ul class="navbar-nav ml-auto" style="">
+            <li class="nav-item">
+                <a class="nav-link" href="https://nhquang.github.io/projects.html">Projects</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Contact me</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="https://www.linkedin.com/in/quang-nguyen-090b30b0/">LinkedIn</a>
+					<a class="dropdown-item" href="https://nhquang.github.io/contact.html">Contact Info</a> 
+				</div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid" style="height:852px;overflow:auto;" >
+	<div class="row" >
+		<div class="col">
+			<h3>Email: <a href="mailto:nhquang2110@outlook.com" class="mail">nhquang2110@outlook.com</a></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h3>Phone Number: (647)713-3315</h3>
+		</div>
+	</div>
+</div>
+<div class="footer" style="background-color:#343c44; height:3.5em;position:relative;">
+			<div class="foot">QuangNguyen 2018</div>
+		</div>
+</body>
+</html>
