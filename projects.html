@@ -50,10 +50,22 @@
 			margin-left:auto;
 			margin-right:auto;
 		}
-		.descipt1{
+		.descript1{
 			display:none;
 		}
-		.descipt2{
+		.descriptText1{
+			display:none;
+		}
+		.descript2{
+			display:none;
+		}
+		.descriptText2{
+			display:none;
+		}
+		.descript3{
+			display:none;
+		}
+		.descriptText3{
 			display:none;
 		}
 		.foot{
@@ -62,7 +74,7 @@
 			padding-top:15px;
 		}
 		.footer{
-			position: absolute;
+			
 			width:100%;
 			margin-top: 15px;
 		}
@@ -70,6 +82,18 @@
 		.nav-item{
 			
 			
+		}
+		.slidings{
+			display:none;
+			margin:auto;
+		}
+		.slidings1{
+			display:none;
+			margin:auto;
+		}
+		.slidings2{
+			display:none;
+			margin:auto;
 		}
 	</style>
 	
@@ -96,20 +120,43 @@
 					$(".ins").fadeOut(1000);
 				}
 				$("#des1").hide();
+				$("#des3").hide();
 				$("#des2").fadeIn(2000);
+				$("#desText1").hide();
+				$("#desText3").hide();
+				$("#desText2").fadeIn(2000);
 				$("#title2").addClass("ay");
 				$("#title1").removeClass("ay");
+				$("#title3").removeClass("ay");
 			});
 			$("#title1").click(function(){
 				if($(".ins").is(":visible")){
 					$(".ins").fadeOut(1000);
 				}
 				$("#des2").hide();
+				$("#des3").hide();
 				$("#des1").fadeIn(2000);
+				$("#desText2").hide();
+				$("#desText3").hide();
+				$("#desText1").fadeIn(2000);
 				$("#title1").addClass("ay");
 				$("#title2").removeClass("ay");
+				$("#title3").removeClass("ay");
 			});
-			
+			$("#title3").click(function(){
+				if($(".ins").is(":visible")){
+					$(".ins").fadeOut(1000);
+				}
+				$("#des2").hide();
+				$("#des1").hide();
+				$("#des3").fadeIn(2000);
+				$("#desText2").hide();
+				$("#desText1").hide();
+				$("#desText3").fadeIn(2000);
+				$("#title3").addClass("ay");
+				$("#title2").removeClass("ay");
+				$("#title1").removeClass("ay");
+			});
 		});
 		
 			
@@ -143,13 +190,15 @@
 			<button class="col title" id="title1" style="">Wecreu</button>
 			
 			<button class="col title" id="title2" style="">Film Library</button>
+			
+			<button class="col title" id="title3" style="">Film Library C-sharp</button>
 		</div>
 		<div class="ins" style="text-align:center;margin-top:200px;">
 			<h2>Click on the project's name to see the details</h2>
 		</div>
-		<div class="descipt1" id="des1" style="padding-top:25px;width:50%; margin:auto;text-align:center;">
+		<div class="descript1" id="des1" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:62%;">
 			<a href="http://myvmlab.senecacollege.ca:5726/wecreu/">See the project</a>
-			<table class="table" style="">
+			<!--<table class="table" style="">
 				<tr>
 					<td><img src="wecreu.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 					<td><img src="wecreu2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
@@ -158,13 +207,41 @@
 					<td><img src="wecreu3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 					<td><img src="wecreu4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 				</tr>
-			</table>
-			Wecreu is a web application which is developed by using PHP, HTML, CSS, Javascript, SQL. Users can use this app to generate their own shopping website for their bussiness based on the templates that we provide. With this app, the users can do adding, removing, updating products, products' categories, products' promotions. The app also allow users to add pages within their website such as: Career page, etc. 
+			</table>-->
+			
+				<img src="wecreu.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
+				<img src="wecreu2.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
+				<img src="wecreu3.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
+				<img src="wecreu4.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
+			
+			<script>
+				var index = 0;
+				slide();
+				function slide(){
+					var i;
+					var images = document.getElementsByClassName("slidings");
+					for (i = 0; i < images.length; i++){
+						images[i].style.display = "none";
+					}
+					index++;
+					if(index > images.length){
+						index = 1;
+					}
+					images[index - 1].style.display = "block";
+					setTimeout(slide, 3000);
+					
+				}
+			</script>
+			
+		</div>
+		<div class="descriptText1" id="desText1"style="text-align:center; margin:auto;width:50%;">
+				Wecreu is a web application which is developed by using PHP, HTML, CSS, Javascript, SQL. Users can use this app to generate their own shopping website for their bussiness based on the templates that we provide. With this app, the users can do adding, removing, updating products, products' categories, products' promotions. The app also allows users to add pages within their website such as: Career page, etc. 
 		</div>
 		
-		<div class="descipt2" id="des2" style="padding-top:25px;width:50%; margin:auto;text-align:center;">
-			This project is still in progress.
-			<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
+		
+		<div class="descript2" id="des2" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:69%;">
+			This project is still in progress, <a href="https://github.com/nhquang/FilmLib">take a look at the codes.</a>
+			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
 				<tr>
 					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
@@ -173,12 +250,76 @@
 					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
 				</tr>
-			</table>
-			Film Library is a Windows application which is developed by using VB.NET. With this app, the users can search, discover their favourite movies, rate them, and add them to their favourite list. 
+			</table>-->
+				<img src="filmLib.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLib2.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLib3.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLib4.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+			
+			<script>
+				var index1 = 0;
+				slide1();
+				function slide1(){
+					var j;
+					var images1 = document.getElementsByClassName("slidings1");
+					for (j = 0; j < images1.length; j++){
+						images1[j].style.display = "none";
+					}
+					index1++;
+					if(index1 > images1.length){
+						index1 = 1;
+					}
+					images1[index1 - 1].style.display = "block";
+					setTimeout(slide1, 3000);
+					
+				}
+			</script>
+		</div>
+		<div class="descriptText2" id="desText2"style="text-align:center; margin:auto;width:50%;">
+				Film Library is a Windows application which is developed by using VB.NET, MS SQL Server 2012. With this app, the users can search, discover their favourite movies, and add them to their favourite list. 
+		</div>
+		<div class="descript3" id="des3" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:69%;">
+			This project is still in progress, <a href="https://github.com/nhquang/FilmLibCsharp">take a look at the codes.</a>
+			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
+				<tr>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+				<tr>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+			</table>-->
+				<img src="filmLibC#.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLibC#2.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLibC#3.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+				<img src="filmLibC#4.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
+			
+			<script>
+				var index2 = 0;
+				slide2();
+				function slide2(){
+					var k;
+					var images2 = document.getElementsByClassName("slidings2");
+					for (k = 0; k < images2.length; k++){
+						images2[k].style.display = "none";
+					}
+					index2++;
+					if(index2 > images2.length){
+						index2 = 1;
+					}
+					images2[index2 - 1].style.display = "block";
+					setTimeout(slide2, 3000);
+					
+				}
+			</script>
+		</div>
+		<div class="descriptText3" id="desText3"style="text-align:center; margin:auto;width:50%;">
+				Film Library is a Windows application which is developed by using C#, MS SQL Server 2012. With this app, the users can search, discover their favourite movies, and add them to their favourite list. 
 		</div>
 	</div>
 	
-		<div class="footer" style="background-color:#343c44; height:3.5em;position:relative;">
+		<div class="footer" style="background-color:#343c44; height:3.5em;">
 			<div class="foot">QuangNguyen 2018</div>
 		</div>
   </body>
