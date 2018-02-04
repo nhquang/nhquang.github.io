@@ -68,6 +68,12 @@
 		.descriptText3{
 			display:none;
 		}
+		.descript4{
+			display:none;
+		}
+		.descriptText4{
+			display:none;
+		}
 		.foot{
 			text-align:center;
 			color:white;
@@ -92,6 +98,10 @@
 			margin:auto;
 		}
 		.slidings2{
+			display:none;
+			margin:auto;
+		}
+		.slidings3{
 			display:none;
 			margin:auto;
 		}
@@ -121,13 +131,16 @@
 				}
 				$("#des1").hide();
 				$("#des3").hide();
+				$("#des4").hide();
 				$("#des2").fadeIn(2000);
 				$("#desText1").hide();
 				$("#desText3").hide();
+				$("#desText4").hide();
 				$("#desText2").fadeIn(2000);
 				$("#title2").addClass("ay");
 				$("#title1").removeClass("ay");
 				$("#title3").removeClass("ay");
+				$("#title4").removeClass("ay");
 			});
 			$("#title1").click(function(){
 				if($(".ins").is(":visible")){
@@ -135,13 +148,16 @@
 				}
 				$("#des2").hide();
 				$("#des3").hide();
+				$("#des4").hide();
 				$("#des1").fadeIn(2000);
 				$("#desText2").hide();
 				$("#desText3").hide();
+				$("#desText4").hide();
 				$("#desText1").fadeIn(2000);
 				$("#title1").addClass("ay");
 				$("#title2").removeClass("ay");
 				$("#title3").removeClass("ay");
+				$("#title4").removeClass("ay");
 			});
 			$("#title3").click(function(){
 				if($(".ins").is(":visible")){
@@ -149,13 +165,33 @@
 				}
 				$("#des2").hide();
 				$("#des1").hide();
+				$("#des4").hide();
 				$("#des3").fadeIn(2000);
 				$("#desText2").hide();
 				$("#desText1").hide();
+				$("#desText4").hide();
 				$("#desText3").fadeIn(2000);
 				$("#title3").addClass("ay");
 				$("#title2").removeClass("ay");
 				$("#title1").removeClass("ay");
+				$("#title4").removeClass("ay");
+			});
+			$("#title4").click(function(){
+				if($(".ins").is(":visible")){
+					$(".ins").fadeOut(1000);
+				}
+				$("#des2").hide();
+				$("#des1").hide();
+				$("#des3").hide();
+				$("#des4").fadeIn(2000);
+				$("#desText2").hide();
+				$("#desText1").hide();
+				$("#desText3").hide();
+				$("#desText4").fadeIn(2000);
+				$("#title4").addClass("ay");
+				$("#title2").removeClass("ay");
+				$("#title1").removeClass("ay");
+				$("#title3").removeClass("ay");
 			});
 		});
 		
@@ -192,6 +228,8 @@
 			<button class="col title" id="title2" style="">Film Library</button>
 			
 			<button class="col title" id="title3" style="">Film Library C-sharp</button>
+			
+			<button class="col title" id="title4" style="">Property Management</button>
 		</div>
 		<div class="ins" style="text-align:center;margin-top:200px;">
 			<h2>Click on the project's name to see the details</h2>
@@ -316,6 +354,46 @@
 		</div>
 		<div class="descriptText3" id="desText3"style="text-align:center; margin:auto;width:50%;">
 				Film Library is a Windows application which is developed by using C#, MySQL. With this app, the users can search, discover, add new movies to the library, and store them to their favourite list. 
+		</div>
+		
+		<div class="descript4" id="des4" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:35%;">
+			This project is still in progress, <a href="https://github.com/nhquang/PropertyManagement">take a look at the codes.</a>
+			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
+				<tr>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+				<tr>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+			</table>-->
+				<img src="Images/prop.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
+				<img src="Images/prop1.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
+				<img src="Images/prop3.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
+				<img src="Images/prop2.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
+			
+			<script>
+				var index3 = 0;
+				slide3();
+				function slide3(){
+					var k;
+					var images3 = document.getElementsByClassName("slidings3");
+					for (k = 0; k < images3.length; k++){
+						images3[k].style.display = "none";
+					}
+					index3++;
+					if(index3 > images3.length){
+						index3 = 1;
+					}
+					images3[index3 - 1].style.display = "block";
+					setTimeout(slide3, 3000);
+					
+				}
+			</script>
+		</div>
+		<div class="descriptText4" id="desText4"style="text-align:center; margin:auto;width:50%;">
+				Property Management is developed using ASP.NET MVC framework. This web app allows the users to maintain the items in their house. The users can add new items, set expiration dates for items, record the problems that occur to the items.
 		</div>
 	</div>
 	
