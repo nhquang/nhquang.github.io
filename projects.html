@@ -256,10 +256,10 @@
 			
 			<script>
 				var index = 0;
-				slide("slidings");
-				function slide(name){
+				slide();
+				function slide(){
 					var i;
-					var images = document.getElementsByClassName(name);
+					var images = document.getElementsByClassName("slidings");
 					for (i = 0; i < images.length; i++){
 						images[i].style.display = "none";
 					}
@@ -299,7 +299,22 @@
 				<img src="Images/filmLib4.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
 			
 			<script>
-				slide("slidings2");
+				var index2 = 0;
+				slide2();
+				function slide2(){
+					var i;
+					var images = document.getElementsByClassName("slidings2");
+					for (i = 0; i < images.length; i++){
+						images[i].style.display = "none";
+					}
+					index2++;
+					if(index2 > images.length){
+						index2 = 1;
+					}
+					images[index2 - 1].style.display = "block";
+					setTimeout(slide2, 3000);
+					
+				}
 			</script>
 		</div>
 		<div class="descriptText2" id="desText2" style="text-align:center; margin:auto;width:50%;">
@@ -324,7 +339,22 @@
 				<img src="Images/prop2.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
 			
 			<script>
-				slide("slidings3");
+				var index3 = 0;
+				slide3();
+				function slide3(){
+					var i;
+					var images = document.getElementsByClassName("slidings3");
+					for (i = 0; i < images.length; i++){
+						images[i].style.display = "none";
+					}
+					index3++;
+					if(index3 > images.length){
+						index3 = 1;
+					}
+					images[index3 - 1].style.display = "block";
+					setTimeout(slide3, 3000);
+					
+				}
 			</script>
 		</div>
 		<div class="descriptText3" id="desText3" style="text-align:center; margin:auto;width:50%;">
@@ -352,7 +382,22 @@
 				<img src="Images/Chat6.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Chat">
 			<script>
 				
-				slide("slidings1");
+				var index1 = 0;
+				slide1();
+				function slide1(){
+					var i;
+					var images = document.getElementsByClassName("slidings1");
+					for (i = 0; i < images.length; i++){
+						images[i].style.display = "none";
+					}
+					index1++;
+					if(index1 > images.length){
+						index1 = 1;
+					}
+					images[index1 - 1].style.display = "block";
+					setTimeout(slide1, 3000);
+					
+				}
 				
 			</script>
 		</div>
