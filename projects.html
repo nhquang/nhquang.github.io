@@ -256,10 +256,10 @@
 			
 			<script>
 				var index = 0;
-				slide();
-				function slide(){
+				slide("slidings");
+				function slide(name){
 					var i;
-					var images = document.getElementsByClassName("slidings");
+					var images = document.getElementsByClassName(name);
 					for (i = 0; i < images.length; i++){
 						images[i].style.display = "none";
 					}
@@ -299,22 +299,7 @@
 				<img src="Images/filmLib4.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="500" width="500" alt="Film Library">
 			
 			<script>
-				var index2 = 0;
-				slide2();
-				function slide2(){
-					var k;
-					var images2 = document.getElementsByClassName("slidings2");
-					for (k = 0; k < images2.length; k++){
-						images2[k].style.display = "none";
-					}
-					index2++;
-					if(index2 > images2.length){
-						index2 = 1;
-					}
-					images2[index2 - 1].style.display = "block";
-					setTimeout(slide2, 3000);
-					
-				}
+				slide("slidings2");
 			</script>
 		</div>
 		<div class="descriptText2" id="desText2" style="text-align:center; margin:auto;width:50%;">
@@ -339,22 +324,7 @@
 				<img src="Images/prop2.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="500" width="500" alt="PropertyManagement">
 			
 			<script>
-				var index3 = 0;
-				slide3();
-				function slide3(){
-					var k;
-					var images3 = document.getElementsByClassName("slidings3");
-					for (k = 0; k < images3.length; k++){
-						images3[k].style.display = "none";
-					}
-					index3++;
-					if(index3 > images3.length){
-						index3 = 1;
-					}
-					images3[index3 - 1].style.display = "block";
-					setTimeout(slide3, 3000);
-					
-				}
+				slide("slidings3");
 			</script>
 		</div>
 		<div class="descriptText3" id="desText3" style="text-align:center; margin:auto;width:50%;">
@@ -381,22 +351,9 @@
 				<img src="Images/Chat5.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Chat">
 				<img src="Images/Chat6.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Chat">
 			<script>
-				var index1 = 0;
-				slide1();
-				function slide1(){
-					var j;
-					var images1 = document.getElementsByClassName("slidings1");
-					for (j = 0; j < images1.length; j++){
-						images1[j].style.display = "none";
-					}
-					index1++;
-					if(index1 > images1.length){
-						index1 = 1;
-					}
-					images1[index1 - 1].style.display = "block";
-					setTimeout(slide1, 3000);
-					
-				}
+				
+				slide("slidings1");
+				
 			</script>
 		</div>
 		<div class="descriptText4" id="desText4" style="text-align:center; margin:auto;width:50%; margin-top:28px; ">
