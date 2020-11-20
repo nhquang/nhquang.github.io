@@ -75,6 +75,13 @@
 		.descriptText4{
 			display:none;
 		}
+		.descript5{
+			display:none;
+		}
+		.descriptText5{
+			display:none;
+		}
+		
 		.foot{
 			text-align:center;
 			color:white;
@@ -106,6 +113,10 @@
 			display:none;
 			margin:auto;
 		}
+		.slidings0{
+			display:none;
+			margin:auto;
+		}
 	</style>
 	
 	<script>
@@ -133,15 +144,18 @@
 				$("#des1").hide();
 				$("#des3").hide();
 				$("#des4").hide();
+				$("#des5").hide();
 				$("#des2").fadeIn(2000);
 				$("#desText1").hide();
 				$("#desText3").hide();
 				$("#desText4").hide();
+				$("#desText5").hide();
 				$("#desText2").fadeIn(2000);
 				$("#title2").addClass("ay");
 				$("#title1").removeClass("ay");
 				$("#title3").removeClass("ay");
 				$("#title4").removeClass("ay");
+				$("#title5").removeClass("ay");
 			});
 			$("#title1").click(function(){
 				if($(".ins").is(":visible")){
@@ -150,15 +164,19 @@
 				$("#des2").hide();
 				$("#des3").hide();
 				$("#des4").hide();
+				$("#des5").hide();
 				$("#des1").fadeIn(2000);
 				$("#desText2").hide();
 				$("#desText3").hide();
 				$("#desText4").hide();
+				$("#desText5").hide();
 				$("#desText1").fadeIn(2000);
 				$("#title1").addClass("ay");
 				$("#title2").removeClass("ay");
 				$("#title3").removeClass("ay");
 				$("#title4").removeClass("ay");
+				$("#title5").removeClass("ay");
+				
 			});
 			$("#title3").click(function(){
 				if($(".ins").is(":visible")){
@@ -167,15 +185,18 @@
 				$("#des2").hide();
 				$("#des1").hide();
 				$("#des4").hide();
+				$("#des5").hide();
 				$("#des3").fadeIn(2000);
 				$("#desText2").hide();
 				$("#desText1").hide();
 				$("#desText4").hide();
+				$("#desText5").hide();
 				$("#desText3").fadeIn(2000);
 				$("#title3").addClass("ay");
 				$("#title2").removeClass("ay");
 				$("#title1").removeClass("ay");
 				$("#title4").removeClass("ay");
+				$("#title5").removeClass("ay");
 			});
 			$("#title4").click(function(){
 				if($(".ins").is(":visible")){
@@ -184,15 +205,38 @@
 				$("#des2").hide();
 				$("#des1").hide();
 				$("#des3").hide();
+				$("#des5").hide();
 				$("#des4").fadeIn(2000);
 				$("#desText2").hide();
 				$("#desText1").hide();
 				$("#desText3").hide();
+				$("#desText5").hide();
 				$("#desText4").fadeIn(2000);
 				$("#title4").addClass("ay");
 				$("#title2").removeClass("ay");
 				$("#title1").removeClass("ay");
 				$("#title3").removeClass("ay");
+				$("#title5").removeClass("ay");
+			});
+			$("#title5").click(function(){
+				if($(".ins").is(":visible")){
+					$(".ins").fadeOut(1000);
+				}
+				$("#des2").hide();
+				$("#des1").hide();
+				$("#des3").hide();
+				$("#des4").hide();
+				$("#des5").fadeIn(2000);
+				$("#desText2").hide();
+				$("#desText1").hide();
+				$("#desText3").hide();
+				$("#desText4").hide();
+				$("#desText5").fadeIn(2000);
+				$("#title5").addClass("ay");
+				$("#title2").removeClass("ay");
+				$("#title1").removeClass("ay");
+				$("#title3").removeClass("ay");
+				$("#title4").removeClass("ay");
 			});
 		});
 		
@@ -231,6 +275,8 @@
 			<button class="col title" id="title3" style="">Property Management</button>
 			
 			<button class="col title" id="title4" style="">Chat</button>
+			
+			<button class="col title" id="title5" style="">NasaAPI</button>
 		</div>
 		<div class="ins" style="text-align:center;margin-top:200px;">
 			<h2>Click on the project's name to see the details</h2>
@@ -403,6 +449,49 @@
 		</div>
 		<div class="descriptText4" id="desText4" style="text-align:center; margin:auto;width:50%; margin-top:28px; ">
 				This simple chat app for computers on the same network is written in C# Winforms, SQL. It uses UDP protocol to send and receive messages. 
+		</div>
+		<div class="descript5" id="des5" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:69%;">
+			<a href="https://github.com/nhquang/Nasa">Github</a>
+			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
+				<tr>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+				<tr>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+				</tr>
+			</table>-->
+				<img src="Images/NasaAPI.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				<img src="Images/NasaAPI-1.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				<img src="Images/NasaAPI-2.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				<img src="Images/NasaAPI-3.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				<img src="Images/NasaAPI-4.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				<img src="Images/NasaAPI-5.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="500" width="500" alt="API">
+				
+			<script>
+				
+				var index4 = 0;
+				slide4();
+				function slide4(){
+					var i;
+					var images = document.getElementsByClassName("slidings0");
+					for (i = 0; i < images.length; i++){
+						images[i].style.display = "none";
+					}
+					index4++;
+					if(index4 > images.length){
+						index4 = 1;
+					}
+					images[index4 - 1].style.display = "block";
+					setTimeout(slide4, 3000);
+					
+				}
+				
+			</script>
+		</div>
+		<div class="descriptText5" id="desText5" style="text-align:center; margin:auto;width:50%; margin-top:28px; ">
+				This app is a library of astronomy photos. Pick a date and a camera to see the pictures taken by the Curiosity rover on Mars. The app is written in C#, WPF MVVM.
 		</div>
 	</div>
 	
