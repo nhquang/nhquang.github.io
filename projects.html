@@ -139,7 +139,7 @@
 			$(".ins").slideDown(800);
 			$("#title2").click(function(){
 				if($(".ins").is(":visible")){
-					$(".ins").fadeOut(1000);
+					$(".ins").hide();
 				}
 				$("#des1").hide();
 				$("#des3").hide();
@@ -159,7 +159,7 @@
 			});
 			$("#title1").click(function(){
 				if($(".ins").is(":visible")){
-					$(".ins").fadeOut(1000);
+					$(".ins").hide();
 				}
 				$("#des2").hide();
 				$("#des3").hide();
@@ -180,7 +180,7 @@
 			});
 			$("#title3").click(function(){
 				if($(".ins").is(":visible")){
-					$(".ins").fadeOut(1000);
+					$(".ins").hide();
 				}
 				$("#des2").hide();
 				$("#des1").hide();
@@ -200,7 +200,7 @@
 			});
 			$("#title4").click(function(){
 				if($(".ins").is(":visible")){
-					$(".ins").fadeOut(1000);
+					$(".ins").hide();
 				}
 				$("#des2").hide();
 				$("#des1").hide();
@@ -220,7 +220,7 @@
 			});
 			$("#title5").click(function(){
 				if($(".ins").is(":visible")){
-					$(".ins").fadeOut(1000);
+					$(".ins").hide();
 				}
 				$("#des2").hide();
 				$("#des1").hide();
@@ -268,15 +268,15 @@
 	
     <div class="container-fluid" style="height:800px;" >
 		<div class="row">
-			<button class="col title" id="title1" style="">Wecreu</button>
+			<button type="button" class="col title btn" id="title1" style="">Wecreu</button>
 			
-			<button class="col title" id="title2" style="">Film Library</button>
+			<button type="button" class="col title btn" id="title2" style="">Film Library</button>
 			
-			<button class="col title" id="title3" style="">Property Management</button>
+			<button type="button" class="col title btn" id="title3" style="">Property Management</button>
 			
-			<button class="col title" id="title4" style="">Chat</button>
+			<button type="button" class="col title btn" id="title4" style="">Chat</button>
 			
-			<button class="col title" id="title5" style="">NasaAPI</button>
+			<button type="button" class="col title btn" id="title5" style="">NasaAPI</button>
 		</div>
 		<div class="ins" style="text-align:center;margin-top:200px;">
 			<h2>Click on a project's name to see its details</h2>
