@@ -74,7 +74,7 @@
 					bricks[col][row].y = (row*(brickHeight + brickPadding)) + brickOffsetTop;
 					ctx.beginPath();
 					ctx.rect(bricks[col][row].x, bricks[col][row].y, brickWidth, brickHeight);
-					ctx.fillStyle = "green";
+					ctx.fillStyle = "brown";
 					ctx.fill();
 					ctx.closePath();
 				}
@@ -145,7 +145,7 @@
     var drawBall = () =>{
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "blue";
         ctx.fill();
         ctx.closePath();
     };
