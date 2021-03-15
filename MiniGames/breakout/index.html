@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<script src="/app.js"></script>
+    <title>Breakout</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+    
+</head>
+<body>
+	
+	<canvas id="myCanvas" width="500" height="400"></canvas>
+	<br>
+	<div style="margin:auto; color:red; font-size: 50px; text-align:center;">
+		Score
+	</div>
+	<div id="score" style="margin:auto; color:red; font-size: 30px; text-align:center;">
+		0
+	</div>
+<script>
+    var canvas = document.getElementById("myCanvas");
+	var scoreLbl = document.getElementById("score");
+    var ctx = canvas.getContext("2d");
+	var difficulty = "";
+	while(difficulty !== "1" && difficulty !== "2" && difficulty !== "3")
+		difficulty = prompt("Enter 1 to choose Easy, 2 to choose Medium, 3 to choose Hard:");
+
+	
+    //coordinates of the ball
+    var x = canvas.width / 2;
+    var y = canvas.height - 30;
+    if(difficulty === "1"){
+		var dx = 1;    //minus going left, plus going right
+		var dy = -2;   //minus going up, plus going down
+	}
+	else if (difficulty === "2"){
+		var dx = 2;
+		var dy = -3;
+	}
+	else {
+		var dx = 3;
+		var dy = -5;
+	}
+	
+    //coordinates of the paddle
+    var padHeight = 10;
+    var padWidth = 100;
+    var paddleX = (canvas.width - padWidth) / 2;
+	
+	var brickRowCount = 3;
+	var brickColumnCount = 5;
+	var brickWidth = 85;
+	var brickHeight = 20;
+	var brickPadding = 5;
+	var brickOffsetTop = 10;
+	var brickOffsetLeft = 30;
+	var score = 0;
+	var bricks = [];
+	for(let col = 0; col < brickColumnCount; col++) {
+		bricks[col] = [];
+		for(let row = 0; row < brickRowCount; row++) {
+			bricks[col][row] = { x: 0, y: 0, status: 1 };
+		}
+	}
+	var drawBricks = () => {
+		for(let col = 0; col < brickColumnCount; col++){
+			for(let row = 0; row < brickRowCount; row++){
+				if(bricks[col][row].status == 1){
+					//bricks[col][row] = {x : 0, y : 0};
+					bricks[col][row].x = (col*(brickWidth + brickPadding)) + brickOffsetLeft;
+					bricks[col][row].y = (row*(brickHeight + brickPadding)) + brickOffsetTop;
+					ctx.beginPath();
+					ctx.rect(bricks[col][row].x, bricks[col][row].y, brickWidth, brickHeight);
+					ctx.fillStyle = "green";
+					ctx.fill();
+					ctx.closePath();
+				}
+			}
+		}
+	}
+    var right = false;
+    var left  = false;
+
+    var ballRadius = 10;
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    function keyUpHandler(e){
+        right = false;
+        left = false;
+    }
+    function keyDownHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") right = true;
+        else if (e.key == "Left" || e.key == "ArrowLeft") left = true;
+    }
+
+    var draw = ()=>{
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        drawBall();
+        drawPaddle();
+		drawBricks();
+		collisionWithTheBrick();
+		scoreLbl.innerHTML = score;
+		
+		if(score == brickColumnCount * brickRowCount){
+			setTimeout(()=>{
+				alert("You won!!!");
+				clearInterval(interval);
+				document.location.reload();
+				
+			}, 5);
+		}
+		
+        x += dx;
+        y += dy;
+        if(right) {
+            paddleX += 7;
+            if(paddleX + padWidth > canvas.width) paddleX = canvas.width - padWidth;
+        }
+        else if (left) {
+            paddleX -= 7;
+            if(paddleX < 0) paddleX = 0;
+        }
+        //if(the ball hits the top or the bottom, reverse the direction)
+        if(y  < ballRadius || y  > canvas.height - ballRadius){
+			if(y + dy < ballRadius) dy = -dy;
+			else {
+				//if the ball hits the paddle
+				if(x > paddleX && x < paddleX + padWidth) dy = -dy;
+				else{
+					alert("Game Over!!");
+					document.location.reload();
+					clearInterval(interval);
+				}
+			}
+		}
+        //if(the ball hits the left or the right, reverse the direction)
+        if(x  < ballRadius || x > canvas.width - ballRadius) dx = -dx;
+		//requestAnimationFrame(draw);
+    }
+    var drawBall = () =>{
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
+    };
+    var drawPaddle = () => {
+        ctx.beginPath();
+        ctx.rect(paddleX, canvas.height - padHeight, padWidth, padHeight);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+    };
+	function collisionWithTheBrick() {
+		for(let col = 0; col < brickColumnCount; col++){
+			for(let row = 0; row < brickRowCount; row++){
+				if(bricks[col][row].status == 1){
+					let brick = bricks[col][row];
+				
+					//if x is greater than the x of the brick and less than the x of the brick plus its width.
+					//if y is greater than the y of the brick and less than the y of the brick plus its height.
+					if(x > brick.x && x < brick.x + brickWidth && y > brick.y && y < brick.y + brickHeight) { dy = -dy; bricks[col][row].status = 0; score++; }
+				}
+			}
+		}
+	}
+    
+	var interval = setInterval(draw, 5);
+	//draw();
+</script>
+</body>

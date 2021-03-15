@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<script src="/app.js"></script>
+    <title>Breakout</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+    
+</head>
+<body style="">
+	
+	<canvas id="myCanvas" width="500" height="400"></canvas>
+	<br>
+	<div style="margin:auto; color:red; font-size: 50px; text-align:center;">
+		Score
+	</div>
+	<div id="score" style="margin:auto; color:red; font-size: 30px; text-align:center;">
+		0
+	</div>
+	
+<script>
+    var canvas = document.getElementById("myCanvas");
+	var scoreLbl = document.getElementById("score");
+    var ctx = canvas.getContext("2d");
+	
+	var up = false;
+	var ballRadius = 10;
+	var y = canvas.height / 2;
+	
+	var background = new Image();
+	background.src = "background.png";
+	
+	background.onload = function(){
+		ctx.drawImage(background,0,0);   
+	}
+	
+	var obstacleWidth = 40;
+	
+	var obstacleTopX = canvas.width;
+	var obstacleBottomX = canvas.width;
+	
+	var topObstacles = [];
+	var bottomObstacles = [];
+	var track = 0;
+	for(let i = 0 ; i <= 100; i++){
+		let gap = getRandomArbitrary(60, 150);
+		let obsTopHeight = getRandomArbitrary(30, canvas.height / 2);
+		let obsTop = {height : obsTopHeight};
+		topObstacles.push(obsTop);
+		let obsBotY = obsTopHeight + gap;
+		let obsBot = {y : obsBotY, height : canvas.height - obsBotY};
+		bottomObstacles.push(obsBot);
+	}
+	
+	
+    
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+	//var stop = false;
+    function keyUpHandler(e){
+        up = false;
+    }
+    function keyDownHandler(e) {
+        if (e.key == "Up" || e.key == "ArrowUp" || e.key == " ") up = true;
+		//else if(e.key == "Escape") stop = true;
+    }
+	var speed = 0;
+    var draw = ()=>{
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+		ctx.drawImage(background,0,0);
+        drawTopObstacle();
+		drawBottomObstacle();
+		drawCharacter();
+		//if(stop) clearInterval(interval);
+		obstacleTopX -= (1 + speed);
+		obstacleBottomX -= (1 + speed);
+		if(up) y -= 2;
+		else y += 1;
+		if(y < ballRadius) y = ballRadius;
+		else if (y > canvas.height - ballRadius) y = canvas.height - ballRadius;
+		if(obstacleBottomX + obstacleWidth < 0 && obstacleTopX + obstacleWidth < 0){
+			obstacleBottomX = canvas.width;
+			obstacleTopX = canvas.width;
+			scoreLbl.innerHTML = ++track;
+			switch(track){
+				case 5:
+					speed += 0.5;
+					break;
+				case 15:
+					speed += 0.5;
+					break;
+				case 30:
+					speed += 0.5;
+					break;
+			}
+		}
+		
+		let lost = false;
+		if((y - ballRadius  < topObstacles[track].height) && (ballRadius + ballRadius > obstacleTopX && ballRadius + ballRadius < obstacleTopX + obstacleWidth))
+			lost = true;
+		else if((y + ballRadius > bottomObstacles[track].y) && (ballRadius + ballRadius > obstacleBottomX && ballRadius + ballRadius < obstacleBottomX + obstacleWidth))
+			lost = true;
+		if(lost){
+			alert("You lost!!!");
+			clearInterval(interval);   
+			document.location.reload();
+		}
+    }
+    
+	var drawCharacter = () =>{
+		ctx.beginPath();
+        ctx.arc(ballRadius, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
+	};
+	var drawTopObstacle = () => {
+		ctx.beginPath();
+        ctx.rect(obstacleTopX, 0, obstacleWidth, topObstacles[track].height);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+	};
+	var drawBottomObstacle = () => {
+		ctx.beginPath();
+        ctx.rect(obstacleBottomX, bottomObstacles[track].y, obstacleWidth, bottomObstacles[track].height);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+	};
+	
+    function getRandomArbitrary(min, max) {
+		return Math.random() * (max - min) + min;
+	}
+	var interval = setInterval(draw, 5);
+	//draw();
+</script>
+</body>
