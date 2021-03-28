@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Breakout</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+    
+</head>
+<body>
+	
+	<canvas id="myCanvas" width="500" height="400"></canvas>
+	<br>
+	<div style="margin:auto; color:red; font-size: 50px; text-align:center;">
+		Score
+	</div>
+	<div id="score" style="margin:auto; color:red; font-size: 30px; text-align:center;">
+		0
+	</div>
+	<div id="instruction" style="margin:auto; color:blue; font-size: 30px; text-align:center;margin-top:40px;">
+		Move the ball with the arrow keys. Try to avoid collision with the red balls.
+	</div>
+<script>
+    var canvas = document.getElementById("myCanvas");
+	var scoreLbl = document.getElementById("score");
+    var ctx = canvas.getContext("2d");
+	var xCh = canvas.width / 2;
+	var yCh = canvas.height / 2;
+	var ballRadius = 10;
+	var Xd = 0;
+	var Yd = 0;
+	var track = 0;
+	var randomBalls = [];
+	for(let i = 0; i <= 100; i++){
+		let ball = {x : canvas.width - 10, y : canvas.height - 10, xd : -1, yd : -1};
+		randomBalls.push(ball);
+	}
+	var background = new Image();
+	background.src = "background.jpg";
+	function keyDown(e){
+		switch(e.key){
+			case "ArrowUp":
+				if(Yd == 0 || Yd == 1) Yd = -1;
+				Xd = 0;
+				break;
+			case "ArrowDown":
+				if(Yd == 0 || Yd == -1) Yd = 1;
+				Xd = 0;
+				break;
+			case "ArrowLeft":
+				if(Xd == 0 || Xd == 1) Xd = -1;
+				Yd = 0;
+				break;
+			case "ArrowRight":
+				if(Xd == 0 || Xd == -1) Xd = 1;
+				Yd = 0;
+				break;
+		}
+	}
+	document.addEventListener("keydown", keyDown, false);
+
+	var draw = () => {
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		ctx.drawImage(background,0,0);
+		drawBall();
+		xCh += Xd; yCh += Yd;
+		for(let i = 0; i <= track; i++){
+			if(randomBalls[i].x + ballRadius > canvas.width || randomBalls[i].x - ballRadius < 0) randomBalls[i].xd *= -1;
+			else if (randomBalls[i].y + ballRadius > canvas.height || randomBalls[i].y - ballRadius < 0) randomBalls[i].yd *= -1;
+			randomBalls[i].x += randomBalls[i].xd;
+			randomBalls[i].y += randomBalls[i].yd;
+			drawRandomBall(randomBalls[i]);
+		}
+		if(detectEdgeCollision() || detectBallCollision()){
+			alert("You lost!!!");
+			clearInterval(interval1);
+			//clearInterval(interval2);
+			document.location.reload();
+		}
+		
+	}
+	var drawBall = () =>{
+		ctx.beginPath();
+		ctx.arc(xCh, yCh, ballRadius, 0, Math.PI*2);
+		ctx.fillStyle = "yellow";
+		ctx.fill();
+		ctx.closePath();
+	};
+	var drawRandomBall = (arg) =>{
+		ctx.beginPath();
+		ctx.arc(arg.x, arg.y, ballRadius, 0, Math.PI*2);
+		ctx.fillStyle = "red";
+		ctx.fill();
+		ctx.closePath();
+	};
+	var detectEdgeCollision = ()=>{
+		if(yCh - ballRadius < 0 || yCh + ballRadius > canvas.height) return true;
+		if(xCh - ballRadius < 0 || xCh + ballRadius > canvas.width) return true;
+		return false;
+	};
+	var detectBallCollision = ()=>{
+		for(let i = 0; i <= track; i++){
+			if(xCh - ballRadius > randomBalls[i].x && xCh - ballRadius < randomBalls[i].x + ballRadius && yCh == randomBalls[i].y) return true;
+			else if (xCh + ballRadius > randomBalls[i].x - ballRadius && xCh + ballRadius < randomBalls[i].x && yCh == randomBalls[i].y) return true;
+			else if ((xCh - ballRadius > randomBalls[i].x && xCh - ballRadius < randomBalls[i].x + ballRadius)){
+				if(yCh - ballRadius >= randomBalls[i].y && yCh - ballRadius <= randomBalls[i].y + ballRadius) return true;
+				else if (yCh + ballRadius <= randomBalls[i].y && yCh + ballRadius >= randomBalls[i].y - ballRadius) return true;
+			}
+			else if (xCh + ballRadius > randomBalls[i].x - ballRadius && xCh + ballRadius < randomBalls[i].x){
+				if(yCh - ballRadius >= randomBalls[i].y && yCh - ballRadius <= randomBalls[i].y + ballRadius) return true;
+				else if (yCh + ballRadius <= randomBalls[i].y && yCh + ballRadius >= randomBalls[i].y - ballRadius) return true;
+			}
+			else if (yCh - ballRadius >= randomBalls[i].y && yCh - ballRadius <= randomBalls[i].y + ballRadius && randomBalls[i].x == xCh) return true;
+			else if (yCh + ballRadius <= randomBalls[i].y && yCh + ballRadius >= randomBalls[i].y - ballRadius && randomBalls[i].x == xCh) return true;
+			else if ((xCh < randomBalls[i].x + ballRadius && xCh > randomBalls[i].x - ballRadius) && (yCh < randomBalls[i].y + ballRadius && yCh > randomBalls[i].y - ballRadius)) return true;
+		}
+		return false;
+	};
+	// function getRandomArbitrary(min, max) {
+	// 	return Math.random() * (max - min) + min;
+	// }
+	var interval2 = setInterval(()=>{
+		scoreLbl.innerHTML = ++track;
+	}, 5000);
+	var interval1 = setInterval(draw, 5);
+
+</script>
+</body>
