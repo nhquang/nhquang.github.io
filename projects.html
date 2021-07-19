@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap">
+	
 	<link rel="icon" href="https://superawesomevectors.com/wp-content/uploads/2017/03/family-guy-stewie-griffin-vector-800x566.jpg"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
@@ -35,6 +37,9 @@
 			height:50px;
 			border-radius:25px;
 			cursor: pointer;
+		}
+		.text{
+			font-weight:bolder;
 		}
 		.title:focus{
 			outline: none;
@@ -122,6 +127,10 @@
 			display:none;
 			margin:auto;
 		}
+		.container-fluid{
+			font-family: 'Poppins', sans-serif;
+		}
+		
 	</style>
 	
 	<script>
@@ -281,7 +290,7 @@
 	
     <div class="container-fluid" style="height:auto; overflow:auto" >
 		<div class="row">
-			<button type="button" class="col title btn" id="title1" style="">Wecreu</button>
+			<button type="button" class="col title btn" id="title1" style="">Movie Store</button>
 			
 			<button type="button" class="col title btn" id="title2" style="">Game Deals Notificator</button>
 			
@@ -294,24 +303,24 @@
 		<div class="ins" style="text-align:center;margin-top:200px;">
 			<h2>Click on a project's name to see its details</h2>
 		</div>
-		<div class="descript1" id="des1" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:auto;">
-			<!--<a href="http://myvmlab.senecacollege.ca:5726/wecreu/">See the project</a>-->
-			It's been more than 2 years since my graduation, so the web app isn't hosted by my school's server anymore.
+		<div class="descript1" id="des1" style="padding-top:25px;width:55%; margin:auto;text-align:center;height:auto;">
+			<a href="https://movies-night-nhquang.herokuapp.com/">Demo</a> | <a href="https://github.com/nhquang/movies_library_reactjs" target="_blank">Github</a>
+			
 			<!--<table class="table" style="">
 				<tr>
-					<td><img src="wecreu.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="wecreu2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="movies.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="movies2.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 				<tr>
-					<td><img src="wecreu3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="wecreu4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="movies3.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="movies4.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 			</table>-->
 			
-				<img src="Images/wecreu.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
-				<img src="Images/wecreu2.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
-				<img src="Images/wecreu3.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
-				<img src="Images/wecreu4.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="500" width="500" alt="Wecreu">
+				<img src="Images/movies.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="auto" width="100%" alt="movies">
+				<img src="Images/movies1.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="auto" width="100%" alt="movies">
+				<img src="Images/movies2.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="auto" width="100%" alt="movies">
+				<img src="Images/movies3.PNG" class="img-thumbnail slidings" style="margin-top:30px;"  height="auto" width="100%" alt="movies">
 			
 			<script>
 				var index = 0;
@@ -333,30 +342,30 @@
 			</script>
 			
 		</div>
-		<div class="descriptText1" id="desText1" style="text-align:center; margin:auto;width:50%; margin-top:20px;">
-				Wecreu is a web application which is written in PHP, HTML, CSS, Javascript, SQL. Users can use this app to generate their own shopping website for their bussiness based on the templates that we provide. With this app, the users can do adding, removing, updating products, products' categories, products' promotions.
+		<div class="descriptText1 text" id="desText1" style="text-align:center; margin:auto;width:50%; margin-top:20px;">
+				Movie Night is a web application which is written in HTML, CSS, and ReactJS.
 		</div>
 		
 		
 		
-		<div class="descript2" id="des2" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:auto;">
+		<div class="descript2" id="des2" style="padding-top:25px;width:55%; margin:auto;text-align:center;height:auto;">
 			 <!--<a href="https://github.com/nhquang/FilmLibCsharp/releases">Download and install the app</a> or <a href="https://github.com/nhquang/FilmLibCsharp">take a look at the codes.</a>-->
 			 <a href="https://nhquang.github.io/game_deals_notificator_front_end/" target="_blank">Demo</a> | <a href="https://github.com/nhquang/game_deals_notificator_back_end" target="_blank">Github</a> 
 			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
 				<tr>
-					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 				<tr>
-					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 			</table>-->
-				<img src="Images/gamesnoti.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="700" width="900" alt="Game Deals Notificator">
-				<img src="Images/gamesnoti1.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="700" width="900" alt="Game Deals Notificator">
-				<img src="Images/gamesnoti2.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="700" width="900" alt="Game Deals Notificator">
-				<img src="Images/gamesnoti3.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="700" width="900" alt="Game Deals Notificator">
-				<img src="Images/gamesnoti4.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  height="700" width="900" alt="Game Deals Notificator">
+				<img src="Images/gamesnoti.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"   width="100%" alt="Game Deals Notificator">
+				<img src="Images/gamesnoti1.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  width="100%" alt="Game Deals Notificator">
+				<img src="Images/gamesnoti2.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  width="100%" alt="Game Deals Notificator">
+				<img src="Images/gamesnoti3.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  width="100%" alt="Game Deals Notificator">
+				<img src="Images/gamesnoti4.PNG" class="img-thumbnail slidings2" style="margin-top:30px;"  width="100%" alt="Game Deals Notificator">
 			
 			<script>
 				var index2 = 0;
@@ -377,24 +386,24 @@
 				}
 			</script>
 		</div>
-		<div class="descriptText2" id="desText2" style="text-align:center; margin:auto;width:50%;margin-top:20px;">
+		<div class="descriptText2 text" id="desText2" style="text-align:center; margin:auto;width:50%;margin-top:20px;">
 				Game Deals Notificator is a bot that repeatedly checks for cheap game prices from several gaming marketplaces, and emails you the price alerts. The web app is written in ASP.NET Core Web API, HTML, CSS, ReactJS, and SQL.
 		</div>
 		
-		<div class="descript3" id="des3" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:auto;">
+		<div class="descript3" id="des3" style="padding-top:25px;width:65%; margin:auto;text-align:center;height:auto;">
 			<a href="https://github.com/nhquang/task_tracker_react" target="_blank">Github</a>
 			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
 				<tr>
-					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 				<tr>
-					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 			</table>-->
-				<img src="Images/task.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="400" width="375" alt="PropertyManagement">
-				<img src="Images/task1.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  height="250" width="325" alt="PropertyManagement">
+				<img src="Images/task.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"   width="375" alt="PropertyManagement">
+				<img src="Images/task1.PNG" class="img-thumbnail slidings3" style="margin-top:30px;"  width="325" alt="PropertyManagement">
 				
 			
 			<script>
@@ -416,20 +425,20 @@
 				}
 			</script>
 		</div>
-		<div class="descriptText3" id="desText3" style="text-align:center; margin:auto;width:50%;margin-top:20px;">
+		<div class="descriptText3 text" id="desText3" style="text-align:center; margin:auto;width:50%;margin-top:20px;">
 				Task Tracker is written in HTML, CSS, and ReactJS. A simple web app helps users keep track of daily tasks.
 		</div>
 		
-		<div class="descript4" id="des4" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:auto;">
+		<div class="descript4" id="des4" style="padding-top:25px;width:65%; margin:auto;text-align:center;height:auto;">
 			<a href="https://github.com/nhquang/chat/releases/tag/v1.2" target="_blank">Download demo from Github</a>
 			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
 				<tr>
-					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 				<tr>
-					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 			</table>-->
 				<img src="Images/Chat0.PNG" class="img-thumbnail slidings1" style="margin-top:30px;"  height="500" width="500" alt="Chat">
@@ -460,19 +469,19 @@
 				
 			</script>
 		</div>
-		<div class="descriptText4" id="desText4" style="text-align:center; margin:auto;width:50%; margin-top:20px; ">
+		<div class="descriptText4 text" id="desText4" style="text-align:center; margin:auto;width:50%; margin-top:20px; ">
 				This simple chat app for computers on the same network is written in C# Winforms, SQL. The app is built from scratch, neither APIs nor libraries is used. It features one on one conversation and group conversation. UDP protocol is implemented to send and receive messages.
 		</div>
-		<div class="descript5" id="des5" style="padding-top:25px;width:50%; margin:auto;text-align:center;height:auto;">
+		<div class="descript5" id="des5" style="padding-top:25px;width:65%; margin:auto;text-align:center;height:auto;">
 			<a href="https://github.com/nhquang/nasa" target="_blank">Download demo from Github</a>
 			<!--<table class="table" style="width:85%;margin-left:auto; margin-right:auto;">
 				<tr>
-					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib2.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 				<tr>
-					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
-					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="Wecreu"></td>
+					<td><img src="filmLib3.PNG" class="img-thumbnail" style="" alt="movies"></td>
+					<td><img src="filmLib4.PNG" class="img-thumbnail" style="" alt="movies"></td>
 				</tr>
 			</table>-->
 				<img src="Images/NasaAPI.PNG" class="img-thumbnail slidings0" style="margin-top:30px;"  height="650" width="650" alt="API">
@@ -503,9 +512,14 @@
 				
 			</script>
 		</div>
-		<div class="descriptText5" id="desText5" style="text-align:center; margin:auto;width:50%; margin-top:20px; ">
+		<div class="descriptText5 text" id="desText5" style="text-align:center; margin:auto;width:50%; margin-top:20px; ">
 				This app is a library of astronomy photos. Pick a date and a camera to see the pictures taken by the Curiosity rover on Mars. The app is written in C#, WPF MVVM.
 		</div>
+		<!-- <div class="footer" style="text-align:center;width:100%; margin-top:20px; background-color: black; color: white"> -->
+				<!-- Copyright &copy; 2021 -->
+				<!-- <br/> -->
+				<!-- Quang Nguyen -->
+		<!-- </div> -->
 	</div>
 	
   </body>
